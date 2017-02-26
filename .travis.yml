@@ -26,8 +26,8 @@ before_install:
   - sudo apt-get -y install libxkbcommon-dev libwayland-dev libmirclient-dev libxrandr-dev
   - pwd
   - ls -la
-  - curl -s -O https://cmake.org/files/v3.7/cmake-3.7.2-Linux-x86_64.tar.gz && tar -xf cmake-3.7.2-Linux-x86_64.tar.gz
+  - curl -s -O https://cmake.org/files/v3.7/cmake-3.7.2-Linux-x86_64.tar.gz && tar -xf cmake-3.7.2-Linux-x86_64.tar.gz -C ~
 
 script:
   - mkdir build && cd build && ~/cmake-3.7.2-Linux-x86_64/bin/cmake -DCMAKE_BUILD_TYPE=Debug ..
-  - cd build && make
+  - make
