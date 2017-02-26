@@ -31,6 +31,6 @@ before_install:
 
 script:
   - cd $TRAVIS_BUILD_DIR && mkdir build && cd build && ~/cmake-3.7.2-Linux-x86_64/bin/cmake -DCMAKE_BUILD_TYPE=Debug .. && make
-  - ~/glslang/build/install/bin/glslangValidator -V -o cmake-build-debug/cube-vert.spv cube.vert
-  - ~/glslang/build/install/bin/glslangValidator -V -o cmake-build-debug/cube_openvr-vert.spv cube_openvr.vert
-  - ~/glslang/build/install/bin/glslangValidator -s -V -o cmake-build-debug/cube-frag.spv cube.frag
+  - ~/glslang/build/install/bin/glslangValidator -V -o cube-vert.spv ../cube.vert
+  - ~/glslang/build/install/bin/glslangValidator -V -o cube_openvr-vert.spv ../cube_openvr.vert
+  - ~/glslang/build/install/bin/glslangValidator -s -V -o cube-frag.spv ../cube.frag
