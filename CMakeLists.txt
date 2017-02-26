@@ -15,13 +15,14 @@ include_directories(
 )
 
 link_directories(
+        ~/openvr-1.0.6/bin/linux64/
         ~/.local/share/Steam/ubuntu12_32/steam-runtime/amd64/lib/x86_64-linux-gnu
         ~/vulkan/VulkanSDK/1.0.39.1/x86_64/lib/
 )
 
 LINK_LIBRARIES(
         vulkan
-        openvr_api.so
+        libopenvr_api.so
 )
 
 set(SOURCE_FILES
