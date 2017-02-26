@@ -11,14 +11,14 @@ FILE(TO_NATIVE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lunarg.ppm LUNARG)
 
 include_directories(
         ~/openvr-1.0.6/headers/
-        ~/vulkan/VulkanSDK/1.0.39.1/x86_64/include/
-        ~/vulkan/VulkanSDK/1.0.39.1/examples/
+        ~/VulkanSDK/1.0.39.1/x86_64/include/
+        ~/VulkanSDK/1.0.39.1/examples/
 )
 
 link_directories(
         ~/openvr-1.0.6/bin/linux64/
         ~/.local/share/Steam/ubuntu12_32/steam-runtime/amd64/lib/x86_64-linux-gnu
-        ~/vulkan/VulkanSDK/1.0.39.1/x86_64/lib/
+        ~/VulkanSDK/1.0.39.1/x86_64/lib/
 )
 
 LINK_LIBRARIES(
