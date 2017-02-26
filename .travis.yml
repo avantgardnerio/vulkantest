@@ -24,8 +24,6 @@ cache:
 
 before_install:
   - sudo apt-get -y install libxkbcommon-dev libwayland-dev libmirclient-dev libxrandr-dev
-  - pwd
-  - ls -la
   - curl -s -O https://cmake.org/files/v3.7/cmake-3.7.2-Linux-x86_64.tar.gz && tar -xf cmake-3.7.2-Linux-x86_64.tar.gz -C ~
   - curl -s -o v1.0.6.tar.gz https://codeload.github.com/ValveSoftware/openvr/tar.gz/v1.0.6 && tar -xf v1.0.6.tar.gz -C ~
   - curl -s -O https://vulkan.lunarg.com/sdk/download/1.0.39.1/linux/vulkansdk-linux-x86_64-1.0.39.1.run && chmod ugo+x vulkansdk-linux-x86_64-1.0.39.1.run && ./vulkansdk-linux-x86_64-1.0.39.1.run && mv VulkanSDK ~
@@ -33,3 +31,6 @@ before_install:
 
 script:
   - cd $TRAVIS_BUILD_DIR && mkdir build && cd build && ~/cmake-3.7.2-Linux-x86_64/bin/cmake -DCMAKE_BUILD_TYPE=Debug .. && make
+  - ~/glslang/build/install/bin/glslangValidator -V -o cmake-build-debug/cube-vert.spv cube.vert
+  - ~/glslang/build/install/bin/glslangValidator -V -o cmake-build-debug/cube_openvr-vert.spv cube_openvr.vert
+  - ~/glslang/build/install/bin/glslangValidator -s -V -o cmake-build-debug/cube-frag.spv cube.frag
