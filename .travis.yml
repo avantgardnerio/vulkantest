@@ -1,0 +1,30 @@
+# Build Configuration for Travis CI
+# https://travis-ci.org
+
+dist: trusty
+sudo: required
+language: cpp
+
+matrix:
+  fast_finish: true
+  include:
+    - os: linux
+      compiler: gcc
+      env: VULKAN_BUILD_TARGET=LINUX
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-23.0.2
+
+cache:
+  directories:
+    - external
+
+before_install:
+  - sudo apt-get -y install libxkbcommon-dev libwayland-dev libmirclient-dev libxrandr-dev
+
+script:
+  - mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug ..
+  - cd build && make
