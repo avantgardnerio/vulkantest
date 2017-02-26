@@ -10,6 +10,7 @@ add_definitions(-DVK_USE_PLATFORM_XCB_KHR)
 FILE(TO_NATIVE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lunarg.ppm LUNARG)
 
 include_directories(
+        ~/openvr-1.0.6/headers/
         ~/vulkan/VulkanSDK/1.0.39.1/x86_64/include/
         ~/vulkan/VulkanSDK/1.0.39.1/examples/
 )
@@ -22,7 +23,7 @@ link_directories(
 
 LINK_LIBRARIES(
         vulkan
-        libopenvr_api.so
+        openvr_api
 )
 
 set(SOURCE_FILES
