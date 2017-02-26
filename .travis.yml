@@ -29,8 +29,7 @@ before_install:
   - curl -s -O https://cmake.org/files/v3.7/cmake-3.7.2-Linux-x86_64.tar.gz && tar -xf cmake-3.7.2-Linux-x86_64.tar.gz -C ~
   - curl -s -o v1.0.6.tar.gz https://codeload.github.com/ValveSoftware/openvr/tar.gz/v1.0.6 && tar -xf v1.0.6.tar.gz -C ~
   - curl -s -O https://vulkan.lunarg.com/sdk/download/1.0.39.1/linux/vulkansdk-linux-x86_64-1.0.39.1.run && chmod ugo+x vulkansdk-linux-x86_64-1.0.39.1.run && ./vulkansdk-linux-x86_64-1.0.39.1.run && mv VulkanSDK ~
-  - git clone -q https://github.com/KhronosGroup/glslang.git && cd glslang && git checkout 62c3e40 && mkdir build && cd build && cmake -D CMAKE_BUILD_TYPE=Release .. && make && make install
+  - cd ~ && git clone -q https://github.com/KhronosGroup/glslang.git && cd glslang && git checkout 62c3e40 && mkdir build && cd build && cmake -D CMAKE_BUILD_TYPE=Release .. && make && make install
 
 script:
-  - mkdir build && cd build && ~/cmake-3.7.2-Linux-x86_64/bin/cmake -DCMAKE_BUILD_TYPE=Debug ..
-  - make
+  - cd $TRAVIS_BUILD_DIR && mkdir build && cd build && ~/cmake-3.7.2-Linux-x86_64/bin/cmake -DCMAKE_BUILD_TYPE=Debug .. && make
