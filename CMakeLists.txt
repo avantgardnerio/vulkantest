@@ -9,6 +9,11 @@ add_definitions(-DVK_USE_PLATFORM_XCB_KHR)
 
 FILE(TO_NATIVE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lunarg.ppm LUNARG)
 
+file(GLOB TEXTURES
+        "${PROJECT_SOURCE_DIR}/*.ppm"
+        )
+file(COPY ${TEXTURES} DESTINATION ${CMAKE_BINARY_DIR})
+
 include_directories(
         ~/openvr-1.0.6/headers/
         ~/VulkanSDK/1.0.39.1/x86_64/include/
